@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 
 function Clock() {
@@ -7,6 +8,10 @@ function Clock() {
     setInterval(() => {
       setTime(new Date());
     }, 1000);
+
+    return function cleanup(){
+    clearInterval(time);
+  };
   }, []);
 
   return <div>{time.toString()}</div>;
